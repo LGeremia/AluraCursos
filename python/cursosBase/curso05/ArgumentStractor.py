@@ -12,13 +12,19 @@ class ArgumentStractor:
         else:
             return False
 
+    #caso print o len(objeto) irá retornar o tamanho da url 
     def __len__(self):
         return len(self.url)
 
+    #caso print o objeto irá retornar um texto informando sobre os dados contidos na url
     def __str__(self):
         origin_currency, destiny_currency = self.stract_argument()
         represetation = "Valor: {} \nMoeda origem: {} \nMoeda destino: {}".format(self.find_value(), origin_currency, destiny_currency)
         return represetation
+
+    #caso faça objeto == outro_objeto irá comparar se as urls são iguais
+    def __eq__(self, comparation):
+        return self.url == comparation.url
 
     #esse método recebe a url e a fatia entre dois tipos de moeda, a originária(origin_currency)
     #e a de destino(destiny_currency), para isso é definido os valores de cada indice iniciais e finais
