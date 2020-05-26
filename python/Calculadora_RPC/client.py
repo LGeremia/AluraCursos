@@ -7,18 +7,15 @@ def verify_connection():
         print("Ocorreu um erro! Verifique a conexão com o servidor.")
         exit()
 
-proxy = xmlrpc.client.ServerProxy("http://localhost:8000/")
-chose = 0
-print("Bem vindo a calculadora remota")
+def verify_numbers(chose, number1, number2):
+    try:
+        chose, number1, number2 = int(chose), int(number1), int(number2)
+        return chose, number1, number2
+    except:
+        print("Ocorreu um erro, digite apenas números!")
+        exit()
 
-verify_connection()
-
-while(chose != 6):
-    print("Digite: \n1-Soma 2-Subtração 3-Multiplicação 4-Divisão 5-Potenciação 6-Sair:")
-    chose = int(input())
-    number1 = int(input('Digite o primeiro número da operação: '))
-    number2 = int(input('Digite o segundo número da operação: '))
-    
+def calculate(chose, number1, number2):
     if(chose == 1):
         result = proxy.add(number1, number2)
     elif(chose == 2):
@@ -32,6 +29,29 @@ while(chose != 6):
     elif(chose != 6):
         print("Opção inválida, tente novamente")
         chose = 0
+
+    return result
+
+def is_six(chose):
+    if(int(chose) == 6):
+        exit()
+
+proxy = xmlrpc.client.ServerProxy("http://localhost:8000/")
+chose = 0
+print("Bem vindo a calculadora remota")
+
+verify_connection()
+
+while(True):
+    print("Digite: \n1-Soma 2-Subtração 3-Multiplicação 4-Divisão 5-Potenciação 6-Sair:")
+    chose = input()
+    is_six(chose)
+    number1 = input('Digite o primeiro número da operação: ')
+    number2 = input('Digite o segundo número da operação: ')
+    
+    chose, number1, number2 = verify_numbers(chose, number1, number2)
+    
+    result = calculate(chose, number1, number2)
 
     print("A resposta é: {}".format(result))
 
