@@ -13,4 +13,5 @@ print(phone)
 
 date = Dates()
 print(date.week_day())
-print(date.foramted_create_moment)
+print(date.formated_create_moment)
+print(date.create_time())
