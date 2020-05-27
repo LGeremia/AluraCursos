@@ -7,4 +7,5 @@ print(cpf)
 cnpj = Document.generate_document("33969298000100")
 print(cnpj)
 
-phone = Phones(49988423605)
+phone = Phones(554988423605)
+print(phone)
