@@ -1,8 +1,7 @@
-from Cpf import Cpf
-from Cnpj import Cnpj
+from Document import Document
 
-cpf = Cpf("01234567890")
+cpf = Document.generate_document("01234567890")
 print(cpf)
 
-cnpj = Cnpj("33969298000100")
+cnpj = Document.generate_document("33969298000100")
 print(cnpj)
