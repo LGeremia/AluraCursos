@@ -1,3 +1,8 @@
 from Cpf import Cpf
-cpf = Cpf("012.345.678-90")
-print(cpf
+from Cnpj import Cnpj
+
+cpf = Cpf("01234567890")
+print(cpf)
+
+cnpj = Cnpj("33969298000100")
+print(cnpj)

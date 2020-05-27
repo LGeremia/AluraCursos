@@ -7,9 +7,9 @@ class Cnpj:
         else:
             raise ValueError("CNPJ inválido!")
         self._formated_cnpj = self.format_cnpj()
-
+    
     def validated_cnpj(self, document):
-        if len(str(document)) >= 11:
+        if len(str(document)) >= 14:
             validate_cnpj = CNPJ()
             return validate_cnpj.validate(document)
         else:
