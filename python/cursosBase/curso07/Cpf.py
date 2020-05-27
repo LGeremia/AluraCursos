@@ -2,13 +2,13 @@ from validate_docbr import CPF
 
 class Cpf:
     def __init__(self, document):
-        if self.validated_cpf(document):
+        if self.validate_cpf(document):
             self._cpf = str(document)
         else:
             raise ValueError("CPF inválido!")
         self._formated_cpf = self.format_cpf()
 
-    def validated_cpf(self, document):
+    def validate_cpf(self, document):
         if len(str(document)) >= 11:
             validate_cpf = CPF()
             return validate_cpf.validate(document)
