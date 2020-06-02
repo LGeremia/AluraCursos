@@ -2,6 +2,7 @@ from Document import Document
 from Phones import Phones
 from Dates import Dates
 from Cep_access import AddressSearch
+import requests
 
 cpf = Document.generate_document("01234567890")
 print(cpf)
@@ -19,3 +20,5 @@ print(date.create_time())
 
 cep = AddressSearch("89567026")
 print(cep)
+bairro, cidade, uf = cep.get_via_cep()
+print(bairro, cidade, uf)

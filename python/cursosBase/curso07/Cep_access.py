@@ -1,3 +1,5 @@
+import requests
+
 class AddressSearch:
     def __init__(self, cep):
         cep = str(cep)
@@ -17,3 +19,13 @@ class AddressSearch:
 
     def format_cep(self):
         return "{}-{}".format(self.cep[:5], self.cep[5:])
+
+    def get_via_cep(self):
+        url = "https://viacep.com.br/ws/{}/json/".format(self.cep)
+        r = requests.get(url)
+        data = r.json()
+        return (
+            data["bairro"],
+            data["localidade"],
+            data["uf"]
+        )
