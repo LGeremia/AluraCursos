@@ -1,6 +1,7 @@
 from Document import Document
 from Phones import Phones
 from Dates import Dates
+from Cep_access import AddressSearch
 
 cpf = Document.generate_document("01234567890")
 print(cpf)
@@ -15,3 +16,6 @@ date = Dates()
 print(date.week_day())
 print(date.formated_create_moment)
 print(date.create_time())
+
+cep = AddressSearch("89567026")
+print(cep)
